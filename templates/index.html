@@ -1,0 +1,44 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'UTF-8'>
+	<title>House prediction</title>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">	
+
+</head>
+
+<body>
+	<div class="login">
+		<h2>Стоимость жилья</h2>
+
+    	 <!-- Main Input For Receiving Query to ML -->
+    	<form action="{{ url_for('predict')}}"method="post">
+    		<input type="text" name="bedrooms" placeholder="Кол-во спален" required="required" />
+        	<input type="text" name="bathrooms" placeholder="Кол-во ванн" required="required" />
+			<input type="text" name="sqft_living" placeholder="Жилая площадь (кв. футы)" required="required" />
+			<input type="text" name="sqft_lot" placeholder="Общая площадь (кв. футы)" required="required" />
+        	<input type="text" name="floors" placeholder="Кол-во этажей" required="required" />
+			<input type="text" name="waterfront" placeholder="Вид на море (0 или 1)" required="required" />
+			<input type="text" name="view" placeholder="Вид из окна (0 - 5)" required="required" />
+        	<input type="text" name="condition" placeholder="Общее состояние (1 - 5)" required="required" />
+			<input type="text" name="grade" placeholder="Грейд, оценка строительства и дизайна (1 - 15)" required="required" />
+			<input type="text" name="sqft_above" placeholder="Площадь над уровнем земли (кв. футы)" required="required" />
+        	<input type="text" name="sqft_basement" placeholder="Площадь под уровнем земли (кв. футы)" required="required" />
+			<input type="text" name="yr_built" placeholder="Возраст жилья" required="required" />
+			<input type="text" name="yr_renovated" placeholder="Лет с последнего ремонта" required="required" />
+        	<input type="text" name="sqft_living15" placeholder="Средняя жилая площадь 15 соседей (кв. футы)" required="required" />
+			<input type="text" name="sqft_lot15" placeholder="Средняя общая площадь 15 соседей (кв. футы)" required="required" />
+        	<button type="submit" class="btn btn-primary btn-block btn-large">Предсказать</button>
+    	</form>
+
+   		<br>
+   		<br>
+   		{{ prediction_text }}
+
+ 	</div>	
+</body>
+</html>
