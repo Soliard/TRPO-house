@@ -1,5 +1,5 @@
-Flask
-Jinja2
+flask
+jinja2
 gunicorn
 certifi
 itsdangerous
